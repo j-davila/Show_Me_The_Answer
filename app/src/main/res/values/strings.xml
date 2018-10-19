@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Show_Me_The_Answer</string>
-    <string name="is_this_real_life">Is_this_real_life</string>
-    <string name="maybe">Maybe</string>
+    <string name="app_name">Show Me the Answer!</string>
+    <string name="question">Is this real life?</string>
+    <string name="answer">Yes, this is real life.</string>
 </resources>

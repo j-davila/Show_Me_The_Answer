@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="txtQuestion">#000000</color>
+    <color name="bckQuestion">#FFFF00</color>
+    <color name="txtAnswer">#FFFFFF</color>
+    <color name="bckAnswer">#DC143C</color>
 </resources>
