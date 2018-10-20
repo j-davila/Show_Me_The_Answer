@@ -53,8 +53,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginStart="0dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="245dp"
+        android:layout_marginBottom="229dp"
         android:background="@drawable/answers_background"
         android:singleLine="true"
         android:text="@string/answer2"
@@ -70,9 +71,9 @@
         android:layout_alignStart="@+id/answer1"
         android:layout_alignParentStart="false"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="179dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="143dp"
         android:background="@drawable/answers_background"
         android:singleLine="true"
         android:text="@string/answer3"
@@ -87,19 +88,19 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp"
-        android:visibility="visible"
+        android:layout_marginBottom="73dp"
         android:contentDescription="@string/visible"
-        android:src="@drawable/visible_eye"/>
+        android:src="@drawable/visible_eye"
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/invisible"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_alignStart="@+id/visible"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp"
-        android:visibility="invisible"
+        android:layout_marginBottom="73dp"
         android:contentDescription="@string/invisible"
-        android:src="@drawable/eye_invisible"/>
+        android:src="@drawable/eye_invisible"
+        android:visibility="invisible" />
 </RelativeLayout>

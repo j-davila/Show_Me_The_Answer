@@ -1,12 +1,13 @@
 package com.github.noreply.a34734577j_davilausers.show_me_the_answer;
 
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
-public boolean isShowingAnswers = true;
+    public boolean isShowingAnswers = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

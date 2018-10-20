@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Show Me the Answer!</string>
-    <string name="question">Is this real life?</string>
-    <string name="answer">Yes, this is real life.</string>
+    <string name="question">How far can a woodchuck chuck wood?</string>
+    <string name="answer1">5 feet</string>
+    <string name="answer2">10 feet</string>
+    <string name="answer3">They can\'t chuck wood</string>
+    <string name="visible">Makes answers visible</string>
+    <string name="invisible">Makes answers invisible</string>
 </resources>

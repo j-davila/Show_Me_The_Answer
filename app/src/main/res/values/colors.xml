@@ -7,4 +7,5 @@
     <color name="bckQuestion">#FFFF00</color>
     <color name="txtAnswer">#FFFFFF</color>
     <color name="bckAnswer">#DC143C</color>
+    <color name="my_red_color">#ee0000</color>
 </resources>
