@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.answer1).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color, null));
+                        (R.color.my_red_color));
                 findViewById(R.id.answer2).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color, null));
+                        (R.color.my_red_color));
                 findViewById(R.id.answer3).setBackgroundColor(getResources().getColor
                         (R.color.colorPrimary));
             }
@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.answer2).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color, null));
+                        (R.color.my_red_color));
                 findViewById(R.id.answer1).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color, null));
+                        (R.color.my_red_color));
                 findViewById(R.id.answer3).setBackgroundColor(getResources().getColor
                         (R.color.colorPrimary));
             }
@@ -43,8 +43,25 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 findViewById(R.id.answer3).setBackgroundColor(getResources().getColor
                         (R.color.colorPrimary));
+                findViewById(R.id.answer2).setBackgroundColor(getResources().getColor
+                        (R.color.my_red_color));
+                findViewById(R.id.answer1).setBackgroundColor(getResources().getColor
+                        (R.color.my_red_color));
             }
         });
+
+        findViewById(R.id.app_background).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.answer3).setBackgroundColor(getResources().getColor
+                        (R.color.bckAnswer));
+                findViewById(R.id.answer2).setBackgroundColor(getResources().getColor
+                        (R.color.bckAnswer));
+                findViewById(R.id.answer1).setBackgroundColor(getResources().getColor
+                        (R.color.bckAnswer));
+            }
+        });
+
         findViewById(R.id.visible).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
