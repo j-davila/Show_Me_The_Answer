@@ -2,7 +2,7 @@
 
 ### Shows the user a question and allows them to reveal the answer by touching the screen.
 ### App Walk-though
-<img src="https://i.imgur.com/cx1zPNr.gif" width=200><br>
+<img src="https://i.imgur.com/IEdDBap.gif" width=200><br>
 ## Required
 - [x] Create New Project in Android Studio
 - [x] Add a view for the front side of the flashcard to display the question
