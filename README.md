@@ -1,5 +1,7 @@
 # Show Me The Answer
 
+## Lab 1
+
 ### Shows the user a question and allows them to reveal the answer by touching the screen.
 ### App Walk-though
 <img src="https://i.imgur.com/IEdDBap.gif" width=200><br>
