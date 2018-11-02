@@ -10,4 +10,5 @@
     <string name="cancel_add">User cancels adding a new card</string>
     <string name="question_text">Enter your awesome question here</string>
     <string name="answer_text">Enter Your Best Guess Here</string>
+    <string name="btn_save">Saves user inpout and creates a new card</string>
 </resources>

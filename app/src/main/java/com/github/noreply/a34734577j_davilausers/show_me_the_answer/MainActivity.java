@@ -6,11 +6,20 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     public boolean isShowingAnswers = true;
 
     @Override
+    // Matches the request code ans returns the user input to create a new card
+    protected void onActivityResult(int requestcode, int resultcode, Intent data) {
+       if (requestcode == 100) {
+           String question_string = data.getExtras().getString("question_string");
+           String answer_string = data.getExtras().getString("answer_string");
+           ((TextView) findViewById(R.id.flashcard_question)).setText(question_string);
+       }
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -86,12 +95,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Interacting with the add icon takes the user to new activity to add another card
+        // If user inputs text and creates a new card the information is passed and stored here
         findViewById(R.id.add_card).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,
                         AddCardActivity.class);
-                MainActivity.this.startActivity(intent);
+                MainActivity.this.startActivityForResult(intent, 100);
             }
         });
     }
