@@ -6,4 +6,8 @@
     <string name="answer3">They can\'t chuck wood</string>
     <string name="visible">Makes answers visible</string>
     <string name="invisible">Makes answers invisible</string>
+    <string name="add_card">User selects icon to add a custom flashcard</string>
+    <string name="cancel_add">User cancels adding a new card</string>
+    <string name="question_text">Enter your awesome question here</string>
+    <string name="answer_text">Enter Your Best Guess Here</string>
 </resources>

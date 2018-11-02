@@ -1,6 +1,7 @@
 package com.github.noreply.a34734577j_davilausers.show_me_the_answer;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // Changes the background color to show incorrect and correct answers
         findViewById(R.id.answer1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                         (R.color.colorPrimary));
             }
         });
-
+        // Changes the background color to show incorrect and correct answers
         findViewById(R.id.answer2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         (R.color.colorPrimary));
             }
         });
-
+        // Changes the background color to show incorrect and correct answers
         findViewById(R.id.answer3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         (R.color.my_red_color));
             }
         });
-
+        // Resets the answers by clocking on the background
         findViewById(R.id.app_background).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                         (R.color.bckAnswer));
             }
         });
-
+        // Interacting with the icon turns the answers visible or invisible
         findViewById(R.id.visible).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -82,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
                             R.drawable.visible_eye);
                     isShowingAnswers = true;
                 }
+            }
+        });
+        // Interacting with the add icon takes the user to new activity to add another card
+        findViewById(R.id.add_card).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,
+                        AddCardActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
     }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCardActivity">
+
+    <ImageView
+        android:id="@+id/cancel_add"
+        android:layout_width="74dp"
+        android:layout_height="78dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginTop="-72dp"
+        android:contentDescription="@string/cancel_add"
+        app:srcCompat="@drawable/cancel_add" />
+
+    <EditText
+        android:id="@+id/question_text"
+        android:layout_width="361dp"
+        android:layout_height="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="@string/question_text"
+        android:importantForAutofill="no" tools:targetApi="o"
+        android:inputType="" />
+
+    <EditText
+        android:id="@+id/answer_text"
+        android:layout_width="361dp"
+        android:layout_height="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="216dp"
+        android:ems="10"
+        android:hint="@string/answer_text"
+        android:importantForAutofill="no" tools:targetApi="o"
+        android:inputType="" />
+
+</RelativeLayout>
