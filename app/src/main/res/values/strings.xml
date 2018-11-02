@@ -9,6 +9,9 @@
     <string name="add_card">User selects icon to add a custom flashcard</string>
     <string name="cancel_add">User cancels adding a new card</string>
     <string name="question_text">Enter your awesome question here</string>
-    <string name="answer_text">Enter Your Best Guess Here</string>
+    <string name="answer_1">Enter Wrong Answer Here</string>
+    <string name="answer_2">Enter Another Wrong Answer Here</string>
+    <string name="answer_3">Enter Correct Answer Here</string>
     <string name="btn_save">Saves user inpout and creates a new card</string>
+    <string name="btn_edit">Allows user to edit current card</string>
 </resources>

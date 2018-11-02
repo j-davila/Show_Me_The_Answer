@@ -96,6 +96,22 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivityForResult(intent, 100);
             }
         });
+        // Allows user to click on edit button and change question
+        findViewById(R.id.btn_edit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
+                intent.putExtra("question_string", ((TextView) findViewById(
+                        R.id.flashcard_question)).getText().toString());
+                intent.putExtra("answer_string", ((TextView) findViewById(
+                        R.id.answer1)).getText().toString());
+                intent.putExtra("answer2_string", ((TextView) findViewById(
+                        R.id.answer2)).getText().toString());
+                intent.putExtra("answer3_string", ((TextView) findViewById(
+                        R.id.answer3)).getText().toString());
+                MainActivity.this.startActivityForResult(intent, 100);
+            }
+        });
     }
     @Override
     // Matches the request code and returns the user input to create a new card
@@ -103,7 +119,13 @@ public class MainActivity extends AppCompatActivity {
         if (requestcode == 100 && resultcode == RESULT_OK) {
             String question_string = data.getExtras().getString("question_string");
             String answer_string = data.getExtras().getString("answer_string");
+            String answer2_string = data.getExtras().getString("answer2_string");
+            String answer3_string = data.getExtras().getString("answer3_string");
             ((TextView) findViewById(R.id.flashcard_question)).setText(question_string);
+            ((TextView) findViewById(R.id.answer1)).setText(answer_string);
+            ((TextView) findViewById(R.id.answer2)).setText(answer2_string);
+            ((TextView) findViewById(R.id.answer3)).setText(answer3_string);
+
         }
     }
 }

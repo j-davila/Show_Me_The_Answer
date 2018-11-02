@@ -107,13 +107,24 @@
         android:visibility="invisible" />
 
     <ImageView
+        android:id="@+id/btn_edit"
+        android:layout_width="74dp"
+        android:layout_height="78dp"
+        android:layout_alignStart="@+id/flashcard_question"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="0dp"
+        android:contentDescription="@string/btn_edit"
+        app:srcCompat="@drawable/btn_edit" />
+
+    <ImageView
         android:id="@+id/add_card"
         android:layout_width="74dp"
         android:layout_height="78dp"
-        android:layout_below="@+id/visible"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="-72dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="34dp"
+        android:layout_marginBottom="0dp"
         android:contentDescription="@string/add_card"
         app:srcCompat="@drawable/add_card" />
 </RelativeLayout>
