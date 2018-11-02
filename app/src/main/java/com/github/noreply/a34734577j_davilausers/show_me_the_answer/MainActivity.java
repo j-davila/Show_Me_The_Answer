@@ -12,14 +12,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean isShowingAnswers = true;
 
     @Override
-    // Matches the request code ans returns the user input to create a new card
-    protected void onActivityResult(int requestcode, int resultcode, Intent data) {
-       if (requestcode == 100) {
-           String question_string = data.getExtras().getString("question_string");
-           String answer_string = data.getExtras().getString("answer_string");
-           ((TextView) findViewById(R.id.flashcard_question)).setText(question_string);
-       }
-    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -105,5 +97,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    @Override
+    // Matches the request code and returns the user input to create a new card
+    protected void onActivityResult(int requestcode, int resultcode, Intent data) {
+        if (requestcode == 100 && resultcode == RESULT_OK) {
+            String question_string = data.getExtras().getString("question_string");
+            String answer_string = data.getExtras().getString("answer_string");
+            ((TextView) findViewById(R.id.flashcard_question)).setText(question_string);
+        }
+    }
 }
+
