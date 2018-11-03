@@ -6,9 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddCardActivity extends AppCompatActivity {
-
+    private boolean emptyText (EditText editText){
+        boolean result = editText.getText().toString().length() <= 0;
+        if(result)
+            Toast.makeText(AddCardActivity.this, "Cannot save with empty fields",
+                    Toast.LENGTH_SHORT).show();
+        return result;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,17 +32,29 @@ public class AddCardActivity extends AppCompatActivity {
         findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent data = new Intent();
-                data.putExtra("question_string", ((EditText) findViewById(
-                        R.id.question_text)).getText().toString());
-                data.putExtra("answer_string", ((EditText) findViewById(
-                        R.id.answer_1)).getText().toString());
-                data.putExtra("answer2_string", ((EditText) findViewById(
-                        R.id.answer_2)).getText().toString());
-                data.putExtra("answer3_string", ((EditText) findViewById(
-                        R.id.answer_3)).getText().toString());
-                setResult(RESULT_OK, data);
-                finish();
+                EditText empty_question = (EditText) findViewById((R.id.question_text));
+                EditText empty_answer = (EditText) findViewById((R.id.answer_1));
+                EditText empty_answer2 = (EditText) findViewById((R.id.answer_2));
+                EditText empty_answer3 = (EditText) findViewById((R.id.answer_3));
+
+                if(emptyText(empty_question)) return;
+                if(emptyText(empty_answer)) return;
+                if(emptyText(empty_answer2)) return;
+                if(emptyText(empty_answer3)) return;
+
+                else {
+                    Intent data = new Intent();
+                    data.putExtra("question_string", ((EditText) findViewById(
+                            R.id.question_text)).getText().toString());
+                    data.putExtra("answer_string", ((EditText) findViewById(
+                            R.id.answer_1)).getText().toString());
+                    data.putExtra("answer2_string", ((EditText) findViewById(
+                            R.id.answer_2)).getText().toString());
+                    data.putExtra("answer3_string", ((EditText) findViewById(
+                            R.id.answer_3)).getText().toString());
+                    setResult(RESULT_OK, data);
+                    finish();
+                }
             }
         });
         // Shows the current card question and answers. Allows them to be edited.
