@@ -125,8 +125,7 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.answer1)).setText(answer_string);
             ((TextView) findViewById(R.id.answer2)).setText(answer2_string);
             ((TextView) findViewById(R.id.answer3)).setText(answer3_string);
-
+            }
         }
-    }
 }
 

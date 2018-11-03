@@ -14,4 +14,5 @@
     <string name="answer_3">Enter Correct Answer Here</string>
     <string name="btn_save">Saves user inpout and creates a new card</string>
     <string name="btn_edit">Allows user to edit current card</string>
+    <string name="droid"></string>
 </resources>
