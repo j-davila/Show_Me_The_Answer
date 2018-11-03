@@ -3,6 +3,7 @@ package com.github.noreply.a34734577j_davilausers.show_me_the_answer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -125,6 +126,11 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.answer1)).setText(answer_string);
             ((TextView) findViewById(R.id.answer2)).setText(answer2_string);
             ((TextView) findViewById(R.id.answer3)).setText(answer3_string);
+            Snackbar.make(findViewById(R.id.app_background), "Card created succesfully",
+            Snackbar.LENGTH_LONG)
+
+            .show();
+
             }
         }
 }
