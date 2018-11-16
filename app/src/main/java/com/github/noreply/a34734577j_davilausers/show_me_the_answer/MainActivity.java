@@ -9,13 +9,44 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     public boolean isShowingAnswers = true;
+    FlashcardDatabase flashcardDatabase;
+    List<Flashcard> allFlashcards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        flashcardDatabase = new FlashcardDatabase((getApplicationContext()));
+        allFlashcards = flashcardDatabase.getAllCards();
+
+        if (allFlashcards != null && allFlashcards.size() > 0) {
+            ((TextView) findViewById(R.id.flashcard_question))
+                    .setText(allFlashcards.get(0).getQuestion());
+            ((TextView) findViewById(R.id.flashcard_answer))
+                    .setText(allFlashcards.get(0).getAnswer());
+        }
+
+        findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.flashcard_answer).setVisibility(View.VISIBLE);
+                findViewById(R.id.flashcard_question).setVisibility(View.INVISIBLE);
+            }
+        });
+
+        findViewById(R.id.flashcard_answer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.flashcard_answer).setVisibility(View.INVISIBLE);
+                findViewById(R.id.flashcard_question).setVisibility(View.VISIBLE);
+            }
+        });
+
         // Changes the background color to show incorrect and correct answers
         findViewById(R.id.answer1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
                 intent.putExtra("question_string", ((TextView) findViewById(
                         R.id.flashcard_question)).getText().toString());
+                intent.putExtra("flashcard_string", ((TextView) findViewById(
+                        R.id.flashcard_answer)).getText().toString());
                 intent.putExtra("answer_string", ((TextView) findViewById(
                         R.id.answer1)).getText().toString());
                 intent.putExtra("answer2_string", ((TextView) findViewById(
@@ -119,14 +152,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestcode, int resultcode, Intent data) {
         if (requestcode == 100 && resultcode == RESULT_OK) {
             String question_string = data.getExtras().getString("question_string");
+            String flashcard_string = data.getExtras().getString("flashcard_string");
             String answer_string = data.getExtras().getString("answer_string");
             String answer2_string = data.getExtras().getString("answer2_string");
             String answer3_string = data.getExtras().getString("answer3_string");
             ((TextView) findViewById(R.id.flashcard_question)).setText(question_string);
+            ((TextView) findViewById(R.id.flashcard_answer)).setText(flashcard_string);
             ((TextView) findViewById(R.id.answer1)).setText(answer_string);
             ((TextView) findViewById(R.id.answer2)).setText(answer2_string);
             ((TextView) findViewById(R.id.answer3)).setText(answer3_string);
-            Snackbar.make(findViewById(R.id.app_background), "Card created succesfully",
+            flashcardDatabase.insertCard(new Flashcard(question_string, flashcard_string));
+            allFlashcards = flashcardDatabase.getAllCards();
+            Snackbar.make(findViewById(R.id.app_background),"Card created succesfully",
             Snackbar.LENGTH_LONG)
 
             .show();

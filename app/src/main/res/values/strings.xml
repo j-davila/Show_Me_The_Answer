@@ -1,18 +1,20 @@
 <resources>
     <string name="app_name">Show Me the Answer!</string>
-    <string name="question">How far can a woodchuck chuck wood?</string>
-    <string name="answer1">5 feet</string>
-    <string name="answer2">10 feet</string>
-    <string name="answer3">They can\'t chuck wood</string>
+    <string name="question">Your question goes here</string>
+    <string name="answer">Your answer goes here</string>
+    <string name="answer1">Answer 1</string>
+    <string name="answer2">Answer 2</string>
+    <string name="answer3">Answer 3</string>
     <string name="visible">Makes answers visible</string>
     <string name="invisible">Makes answers invisible</string>
     <string name="add_card">User selects icon to add a custom flashcard</string>
     <string name="cancel_add">User cancels adding a new card</string>
     <string name="question_text">Enter your awesome question here</string>
-    <string name="answer_1">Enter Wrong Answer Here</string>
-    <string name="answer_2">Enter Another Wrong Answer Here</string>
-    <string name="answer_3">Enter Correct Answer Here</string>
-    <string name="btn_save">Saves user inpout and creates a new card</string>
+    <string name="flashcardAnswer">Enter answer for back of flashcard</string>
+    <string name="answer_1">Enter First Answer Here</string>
+    <string name="answer_2">Enter Another Answer Here</string>
+    <string name="answer_3">Enter Final Answer Here</string>
+    <string name="btn_save">Saves user input and creates a new card</string>
     <string name="btn_edit">Allows user to edit current card</string>
     <string name="droid"></string>
 </resources>

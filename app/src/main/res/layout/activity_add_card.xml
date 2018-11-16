@@ -20,22 +20,23 @@
     <EditText
         android:id="@+id/question_text"
         android:layout_width="361dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="51dp"
         android:ems="10"
         android:hint="@string/question_text"
-        android:importantForAutofill="no" tools:targetApi="o"
-        android:inputType="textMultiLine" />
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/answer_1"
         android:layout_width="361dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="232dp"
         android:ems="10"
         android:hint="@string/answer_1"
         android:importantForAutofill="no"
@@ -56,10 +57,10 @@
     <EditText
         android:id="@+id/answer_2"
         android:layout_width="361dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="261dp"
+        android:layout_marginBottom="231dp"
         android:ems="10"
         android:hint="@string/answer_2"
         android:importantForAutofill="no"
@@ -69,14 +70,26 @@
     <EditText
         android:id="@+id/answer_3"
         android:layout_width="361dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="157dp"
+        android:layout_marginBottom="136dp"
         android:ems="10"
         android:hint="@string/answer_3"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
         tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/flashcardAnswer"
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="141dp"
+        android:ems="10"
+        android:hint="@string/flashcardAnswer"
+        android:inputType="textMultiLine"
+        tools:targetApi="o"/>
 
 </RelativeLayout>
