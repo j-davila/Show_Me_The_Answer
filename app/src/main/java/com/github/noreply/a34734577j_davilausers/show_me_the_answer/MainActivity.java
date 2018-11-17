@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean isShowingAnswers = true;
     FlashcardDatabase flashcardDatabase;
     List<Flashcard> allFlashcards;
+    int currentCardDisplayedIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,22 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.flashcard_answer))
                     .setText(allFlashcards.get(0).getAnswer());
         }
+
+        findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentCardDisplayedIndex++;
+
+                if (currentCardDisplayedIndex > allFlashcards.size() -1){
+                currentCardDisplayedIndex = 0;
+                }
+
+                ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get
+                        (currentCardDisplayedIndex).getQuestion());
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashcards.get
+                        (currentCardDisplayedIndex).getAnswer());
+            }
+        });
 
         findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,23 +113,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Interacting with the icon turns the answers visible or invisible
-        findViewById(R.id.visible).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.visible_button).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if (isShowingAnswers) {
                     findViewById(R.id.answer1).setVisibility(View.INVISIBLE);
                     findViewById(R.id.answer2).setVisibility(View.INVISIBLE);
                     findViewById(R.id.answer3).setVisibility(View.INVISIBLE);
-                    ((ImageView) findViewById(R.id.visible)).setImageResource(
+                    ((ImageView) findViewById(R.id.visible_button)).setImageResource(
                             R.drawable.eye_invisible);
                     isShowingAnswers = false;
+
                 }
 
                 else {
                     findViewById(R.id.answer1).setVisibility(View.VISIBLE);
                     findViewById(R.id.answer2).setVisibility(View.VISIBLE);
                     findViewById(R.id.answer3).setVisibility(View.VISIBLE);
-                    ((ImageView) findViewById(R.id.visible)).setImageResource(
+                    ((ImageView) findViewById(R.id.visible_button)).setImageResource(
                             R.drawable.visible_eye);
                     isShowingAnswers = true;
                 }
@@ -120,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         });
         // Interacting with the add icon takes the user to new activity to add another card
         // If user inputs text and creates a new card the information is passed and stored here
-        findViewById(R.id.add_card).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.add_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,
@@ -129,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Allows user to click on edit button and change question
-        findViewById(R.id.btn_edit).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.edit_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);

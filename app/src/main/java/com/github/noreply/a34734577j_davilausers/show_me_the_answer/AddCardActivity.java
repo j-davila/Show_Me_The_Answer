@@ -22,24 +22,24 @@ public class AddCardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_card);
 
         // Closes add card activity
-        findViewById(R.id.cancel_add).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.cancel_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
         // Records user input and passes it onto MainActivity to create a new card
-        findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.save_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText empty_question = (EditText) findViewById((R.id.question_text));
-                EditText empty_flashcard_answer = (EditText) findViewById((R.id.flashcardAnswer));
+                EditText empty_back_answer = (EditText) findViewById((R.id.back_answer_text));
                 EditText empty_answer = (EditText) findViewById((R.id.answer_1));
                 EditText empty_answer2 = (EditText) findViewById((R.id.answer_2));
                 EditText empty_answer3 = (EditText) findViewById((R.id.answer_3));
 
                 if(emptyText(empty_question)) return;
-                if(emptyText(empty_flashcard_answer)) return;
+                if(emptyText(empty_back_answer)) return;
                 if(emptyText(empty_answer)) return;
                 if(emptyText(empty_answer2)) return;
                 if(emptyText(empty_answer3)) return;
@@ -48,8 +48,8 @@ public class AddCardActivity extends AppCompatActivity {
                     Intent data = new Intent();
                     data.putExtra("question_string", ((EditText) findViewById(
                             R.id.question_text)).getText().toString());
-                    data.putExtra("flashcard_string", ((EditText) findViewById(
-                            R.id.flashcardAnswer)).getText().toString());
+                    data.putExtra("back_answer_string", ((EditText) findViewById(
+                            R.id.back_answer_text)).getText().toString());
                     data.putExtra("answer_string", ((EditText) findViewById(
                             R.id.answer_1)).getText().toString());
                     data.putExtra("answer2_string", ((EditText) findViewById(
@@ -63,13 +63,13 @@ public class AddCardActivity extends AppCompatActivity {
         });
         // Shows the current card question and answers. Allows them to be edited.
         String question_text = getIntent().getStringExtra("question_string");
-        String flashcard_text = getIntent().getStringExtra("flashcard_string");
+        String back_answer_text = getIntent().getStringExtra("back_answer_string");
         String answer_text = getIntent().getStringExtra("answer_string");
         String answer2_text = getIntent().getStringExtra("answer2_string");
         String answer3_text = getIntent().getStringExtra("answer3_string");
         ((EditText) findViewById(R.id.question_text)).setText(question_text,
                 TextView.BufferType.EDITABLE);
-        ((EditText) findViewById(R.id.flashcardAnswer)).setText(question_text,
+        ((EditText) findViewById(R.id.back_answer_text)).setText(back_answer_text,
                 TextView.BufferType.EDITABLE);
         ((EditText) findViewById(R.id.answer_1)).setText(answer_text,
                 TextView.BufferType.EDITABLE);

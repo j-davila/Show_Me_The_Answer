@@ -16,5 +16,6 @@
     <string name="answer_3">Enter Final Answer Here</string>
     <string name="btn_save">Saves user input and creates a new card</string>
     <string name="btn_edit">Allows user to edit current card</string>
+    <string name="next_card">Allows user to view the next card</string>
     <string name="droid"></string>
 </resources>
