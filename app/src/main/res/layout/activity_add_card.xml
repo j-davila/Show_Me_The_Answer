@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:id="@+id/app_add_card"
     tools:context=".AddCardActivity">
 
     <ImageView
@@ -15,7 +17,8 @@
         android:layout_marginEnd="34dp"
         android:layout_marginTop="-72dp"
         android:contentDescription="@string/cancel_add"
-        app:srcCompat="@drawable/cancel_add" />
+        app:srcCompat="@drawable/cancel_add"
+        android:tint="@color/outrun_pink"/>
 
     <EditText
         android:id="@+id/question_text"
@@ -28,7 +31,9 @@
         android:hint="@string/question_text"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
-        tools:targetApi="o" />
+        tools:targetApi="o"
+        android:textColor="@color/answer_color"
+        android:textColorHint="@color/answer_color"/>
 
     <EditText
         android:id="@+id/answer_1"
@@ -41,7 +46,9 @@
         android:hint="@string/answer_1"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
-        tools:targetApi="o" />
+        tools:targetApi="o"
+        android:textColor="@color/answer_color"
+        android:textColorHint="@color/answer_color"/>
 
     <ImageView
         android:id="@+id/save_button"
@@ -52,7 +59,8 @@
         android:layout_marginStart="34dp"
         android:layout_marginBottom="0dp"
         android:contentDescription="@string/btn_save"
-        app:srcCompat="@drawable/btn_save" />
+        app:srcCompat="@drawable/btn_save"
+        android:tint="@color/outrun_pink"/>
 
     <EditText
         android:id="@+id/answer_2"
@@ -65,7 +73,9 @@
         android:hint="@string/answer_2"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
-        tools:targetApi="o" />
+        tools:targetApi="o"
+        android:textColor="@color/answer_color"
+        android:textColorHint="@color/answer_color"/>
 
     <EditText
         android:id="@+id/answer_3"
@@ -78,7 +88,9 @@
         android:hint="@string/answer_3"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
-        tools:targetApi="o" />
+        tools:targetApi="o"
+        android:textColor="@color/answer_color"
+        android:textColorHint="@color/answer_color"/>
 
     <EditText
         android:id="@+id/back_answer_text"
@@ -90,6 +102,8 @@
         android:ems="10"
         android:hint="@string/flashcardAnswer"
         android:inputType="textMultiLine"
-        tools:targetApi="o"/>
+        tools:targetApi="o"
+        android:textColor="@color/answer_color"
+        android:textColorHint="@color/answer_color"/>
 
 </RelativeLayout>

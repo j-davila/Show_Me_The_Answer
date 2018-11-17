@@ -5,7 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="txtQuestion">#000000</color>
     <color name="bckQuestion">#FFFF00</color>
-    <color name="txtAnswer">#FFFFFF</color>
+    <color name="answer_color">#00FEFF</color>
     <color name="bckAnswer">#d7dbdd</color>
     <color name="my_red_color">#ee0000</color>
+    <color name="background">#1B0C21</color>
+    <color name="outrun_pink">#D40078</color>
 </resources>
