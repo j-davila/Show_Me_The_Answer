@@ -170,16 +170,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestcode, int resultcode, Intent data) {
         if (requestcode == 100 && resultcode == RESULT_OK) {
             String question_string = data.getExtras().getString("question_string");
-            String flashcard_string = data.getExtras().getString("back_answer_string");
+            String back_answer_string = data.getExtras().getString("back_answer_string");
             String answer_string = data.getExtras().getString("answer_string");
             String answer2_string = data.getExtras().getString("answer2_string");
             String answer3_string = data.getExtras().getString("answer3_string");
             ((TextView) findViewById(R.id.flashcard_question)).setText(question_string);
-            ((TextView) findViewById(R.id.flashcard_answer)).setText(flashcard_string);
+            ((TextView) findViewById(R.id.flashcard_answer)).setText(back_answer_string);
             ((TextView) findViewById(R.id.answer1)).setText(answer_string);
             ((TextView) findViewById(R.id.answer2)).setText(answer2_string);
             ((TextView) findViewById(R.id.answer3)).setText(answer3_string);
-            flashcardDatabase.insertCard(new Flashcard(question_string, flashcard_string));
+            flashcardDatabase.insertCard(new Flashcard(question_string, back_answer_string));
             allFlashcards = flashcardDatabase.getAllCards();
             Snackbar.make(findViewById(R.id.app_background),"Card created succesfully",
             Snackbar.LENGTH_LONG)
