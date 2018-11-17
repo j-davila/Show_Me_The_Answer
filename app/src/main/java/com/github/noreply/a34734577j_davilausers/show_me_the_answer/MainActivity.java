@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestcode, int resultcode, Intent data) {
         if (requestcode == 100 && resultcode == RESULT_OK) {
             String question_string = data.getExtras().getString("question_string");
-            String flashcard_string = data.getExtras().getString("flashcard_string");
+            String flashcard_string = data.getExtras().getString("back_answer_string");
             String answer_string = data.getExtras().getString("answer_string");
             String answer2_string = data.getExtras().getString("answer2_string");
             String answer3_string = data.getExtras().getString("answer3_string");
