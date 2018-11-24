@@ -168,4 +168,16 @@
         android:contentDescription="@string/next_card"
         app:srcCompat="@drawable/next_card"
         android:tint="@color/outrun_pink"/>
+
+    <ImageView
+        android:id="@+id/delete_button"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="256dp"
+        android:contentDescription="@string/delete_card"
+        android:tint="@color/outrun_pink"
+        app:srcCompat="@drawable/delete_card"
+        android:visibility="invisible"/>
 </RelativeLayout>

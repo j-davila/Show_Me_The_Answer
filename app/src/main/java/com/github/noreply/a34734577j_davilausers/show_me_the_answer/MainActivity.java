@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.flashcard_answer))
                     .setText(allFlashcards.get(0).getAnswer());
         }
-
+        // Cycles to next card
         findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,41 +63,24 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.flashcard_question).setVisibility(View.VISIBLE);
             }
         });
+        // Deletes current card and shows previous card
+        findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flashcardDatabase.deleteCard(((TextView) findViewById(R.id.flashcard_question))
+                        .getText().toString());
 
-        // Changes the background color to show incorrect and correct answers
-        findViewById(R.id.answer1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.answer1).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color));
-                findViewById(R.id.answer2).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color));
-                findViewById(R.id.answer3).setBackgroundColor(getResources().getColor
-                        (R.color.colorPrimary));
-            }
-        });
-        // Changes the background color to show incorrect and correct answers
-        findViewById(R.id.answer2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.answer2).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color));
-                findViewById(R.id.answer1).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color));
-                findViewById(R.id.answer3).setBackgroundColor(getResources().getColor
-                        (R.color.colorPrimary));
-            }
-        });
-        // Changes the background color to show incorrect and correct answers
-        findViewById(R.id.answer3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.answer3).setBackgroundColor(getResources().getColor
-                        (R.color.colorPrimary));
-                findViewById(R.id.answer2).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color));
-                findViewById(R.id.answer1).setBackgroundColor(getResources().getColor
-                        (R.color.my_red_color));
+                allFlashcards = flashcardDatabase.getAllCards();
+                currentCardDisplayedIndex++;
+
+                if (currentCardDisplayedIndex > allFlashcards.size() - 1) {
+                    currentCardDisplayedIndex = 0;
+                }
+
+                ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get
+                        (currentCardDisplayedIndex).getQuestion());
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashcards.get
+                        (currentCardDisplayedIndex).getAnswer());
             }
         });
         // Resets the answers by clocking on the background
@@ -105,11 +88,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.answer3).setBackgroundColor(getResources().getColor
-                        (R.color.bckAnswer));
+                        (R.color.background));
                 findViewById(R.id.answer2).setBackgroundColor(getResources().getColor
-                        (R.color.bckAnswer));
+                        (R.color.background));
                 findViewById(R.id.answer1).setBackgroundColor(getResources().getColor
-                        (R.color.bckAnswer));
+                        (R.color.background));
             }
         });
         // Interacting with the icon turns the answers visible or invisible
@@ -122,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.answer3).setVisibility(View.INVISIBLE);
                     ((ImageView) findViewById(R.id.visible_button)).setImageResource(
                             R.drawable.eye_invisible);
+                    findViewById(R.id.delete_button).setVisibility(View.VISIBLE);
                     isShowingAnswers = false;
 
                 }
@@ -132,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.answer3).setVisibility(View.VISIBLE);
                     ((ImageView) findViewById(R.id.visible_button)).setImageResource(
                             R.drawable.visible_eye);
+                    findViewById(R.id.delete_button).setVisibility(View.INVISIBLE);
                     isShowingAnswers = true;
                 }
             }
