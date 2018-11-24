@@ -10,12 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     public boolean isShowingAnswers = true;
     FlashcardDatabase flashcardDatabase;
     List<Flashcard> allFlashcards;
     int currentCardDisplayedIndex = 0;
+    public int getRandomNumber(int minNumber, int maxNumber) {
+        Random rand = new Random();
+        return rand.nextInt((maxNumber - minNumber) + 1) + minNumber;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +36,21 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.flashcard_answer))
                     .setText(allFlashcards.get(0).getAnswer());
         }
-        // Cycles to next card
+        // Cycles to next random card
         findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentCardDisplayedIndex++;
+             int randomNumber =  getRandomNumber(0, allFlashcards.size() -1);
 
-                if (currentCardDisplayedIndex > allFlashcards.size() -1){
-                currentCardDisplayedIndex = 0;
+                if (randomNumber > allFlashcards.size() -1){
+                    randomNumber = 0;
                 }
 
                 ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get
-                        (currentCardDisplayedIndex).getQuestion());
+                        (randomNumber).getQuestion());
                 ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashcards.get
-                        (currentCardDisplayedIndex).getAnswer());
+                        (randomNumber).getAnswer());
+
             }
         });
 
