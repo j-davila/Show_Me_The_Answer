@@ -18,6 +18,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     public boolean isShowingAnswers = true;
+    Flashcard cardtoEdit;
     FlashcardDatabase flashcardDatabase;
     List<Flashcard> allFlashcards;
     int currentCardDisplayedIndex = 0;
@@ -183,7 +184,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.edit_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
+
                 intent.putExtra("question_string", ((TextView) findViewById(
                         R.id.flashcard_question)).getText().toString());
                 intent.putExtra("flashcard_string", ((TextView) findViewById(
@@ -194,32 +197,62 @@ public class MainActivity extends AppCompatActivity {
                         R.id.answer2)).getText().toString());
                 intent.putExtra("answer3_string", ((TextView) findViewById(
                         R.id.answer3)).getText().toString());
-                MainActivity.this.startActivityForResult(intent, 100);
+
+                cardtoEdit = allFlashcards.get(currentCardDisplayedIndex);
+
+                MainActivity.this.startActivityForResult(intent, 200);
             }
         });
     }
     @Override
     // Matches the request code and returns the user input to create a new card
     protected void onActivityResult(int requestcode, int resultcode, Intent data) {
+
         if (requestcode == 100 && resultcode == RESULT_OK) {
+
             String question_string = data.getExtras().getString("question_string");
             String back_answer_string = data.getExtras().getString("back_answer_string");
             String answer_string = data.getExtras().getString("answer_string");
             String answer2_string = data.getExtras().getString("answer2_string");
             String answer3_string = data.getExtras().getString("answer3_string");
+
             ((TextView) findViewById(R.id.flashcard_question)).setText(question_string);
             ((TextView) findViewById(R.id.flashcard_answer)).setText(back_answer_string);
             ((TextView) findViewById(R.id.answer1)).setText(answer_string);
             ((TextView) findViewById(R.id.answer2)).setText(answer2_string);
             ((TextView) findViewById(R.id.answer3)).setText(answer3_string);
+
             flashcardDatabase.insertCard(new Flashcard(question_string, back_answer_string));
             allFlashcards = flashcardDatabase.getAllCards();
-            Snackbar.make(findViewById(R.id.app_background),"Card created succesfully",
-            Snackbar.LENGTH_LONG)
 
-            .show();
+            Snackbar.make(findViewById(R.id.app_background),"Card created succesfully",
+            Snackbar.LENGTH_LONG).show();
 
             }
+
+        else if (requestcode == 200 && resultcode == RESULT_OK) {
+
+            String question_string = data.getExtras().getString("question_string");
+            String back_answer_string = data.getExtras().getString("back_answer_string");
+            String answer_string = data.getExtras().getString("answer_string");
+            String answer2_string = data.getExtras().getString("answer2_string");
+            String answer3_string = data.getExtras().getString("answer3_string");
+
+            ((TextView) findViewById(R.id.flashcard_question)).setText(question_string);
+            ((TextView) findViewById(R.id.flashcard_answer)).setText(back_answer_string);
+            ((TextView) findViewById(R.id.answer1)).setText(answer_string);
+            ((TextView) findViewById(R.id.answer2)).setText(answer2_string);
+            ((TextView) findViewById(R.id.answer3)).setText(answer3_string);
+
+            cardtoEdit.setQuestion(question_string);
+            cardtoEdit.setAnswer(back_answer_string);
+
+            flashcardDatabase.updateCard(cardtoEdit);
+            allFlashcards = flashcardDatabase.getAllCards();
+
+            Snackbar.make(findViewById(R.id.app_background),"Card edited succesfully",
+                    Snackbar.LENGTH_LONG).show();
+        }
         }
 }
 
