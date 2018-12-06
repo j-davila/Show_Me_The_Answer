@@ -10,4 +10,6 @@
     <color name="my_red_color">#ee0000</color>
     <color name="background">#1B0C21</color>
     <color name="outrun_pink">#D40078</color>
+    <color name="outrun_green">#60B532</color>
+    <color name="outrun_red">#FD1D53</color>
 </resources>

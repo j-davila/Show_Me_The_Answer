@@ -131,6 +131,32 @@ public class MainActivity extends AppCompatActivity {
                         (currentCardDisplayedIndex).getAnswer());
             }
         });
+
+        findViewById(R.id.answer1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.answer1).setBackgroundColor(
+                        getResources().getColor(R.color.outrun_red,null));
+            }
+        });
+        findViewById(R.id.answer2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.answer2).setBackgroundColor(
+                        getResources().getColor(R.color.outrun_red,null));
+            }
+        });
+        findViewById(R.id.answer3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.answer1).setBackgroundColor(
+                        getResources().getColor(R.color.outrun_red,null));
+                findViewById(R.id.answer2).setBackgroundColor(
+                        getResources().getColor(R.color.outrun_red,null));
+                findViewById(R.id.answer3).setBackgroundColor(
+                        getResources().getColor(R.color.outrun_green,null));
+            }
+        });
         // Resets the answers by clicking on the background
         findViewById(R.id.app_background).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,27 +170,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Interacting with the eye icon turns the answers visible or invisible
-        findViewById(R.id.visible_button).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.invisible_button).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if (isShowingAnswers) {
-                    findViewById(R.id.answer1).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.answer2).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.answer3).setVisibility(View.INVISIBLE);
-                    ((ImageView) findViewById(R.id.visible_button)).setImageResource(
-                            R.drawable.eye_invisible);
-                    findViewById(R.id.delete_button).setVisibility(View.VISIBLE);
-                    isShowingAnswers = false;
-
-                }
-
-                else {
                     findViewById(R.id.answer1).setVisibility(View.VISIBLE);
                     findViewById(R.id.answer2).setVisibility(View.VISIBLE);
                     findViewById(R.id.answer3).setVisibility(View.VISIBLE);
                     ((ImageView) findViewById(R.id.visible_button)).setImageResource(
                             R.drawable.visible_eye);
                     findViewById(R.id.delete_button).setVisibility(View.INVISIBLE);
+                    isShowingAnswers = false;
+
+                }
+
+                else {
+                    findViewById(R.id.answer1).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.answer2).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.answer3).setVisibility(View.INVISIBLE);
+                    ((ImageView) findViewById(R.id.invisible_button)).setImageResource(
+                            R.drawable.eye_invisible);
+                    findViewById(R.id.delete_button).setVisibility(View.VISIBLE);
                     isShowingAnswers = true;
                 }
             }
@@ -222,7 +248,9 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.answer2)).setText(answer2_string);
             ((TextView) findViewById(R.id.answer3)).setText(answer3_string);
 
-            flashcardDatabase.insertCard(new Flashcard(question_string, back_answer_string));
+
+            flashcardDatabase.insertCard(new Flashcard(question_string, back_answer_string,
+                    answer2_string, answer_string));
             allFlashcards = flashcardDatabase.getAllCards();
 
             Snackbar.make(findViewById(R.id.app_background),"Card created succesfully",
@@ -246,6 +274,8 @@ public class MainActivity extends AppCompatActivity {
 
             cardtoEdit.setQuestion(question_string);
             cardtoEdit.setAnswer(back_answer_string);
+            cardtoEdit.setWrongAnswer1(answer2_string);
+            cardtoEdit.setWrongAnswer2(answer_string);
 
             flashcardDatabase.updateCard(cardtoEdit);
             allFlashcards = flashcardDatabase.getAllCards();
