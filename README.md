@@ -28,7 +28,7 @@ Allows the user to save created flashcards, edit the flashcards, browse through 
 - [x] User can delete a card and no longer see it in their deck anymore.
 - [x] Flashcards are shown in random order instead of the order they were created in.
 - [x] User can edit a card and see the edit saved when they browse through their deck of cards.
-- [ ] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown.
+- [x] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown.
 ## Lab 2
 ### App Description
 Allows the user to add a new flashcard question and multiple choice answers. Also allows user to edit the flashcard and answers.
